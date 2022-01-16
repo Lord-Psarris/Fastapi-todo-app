@@ -1,0 +1,489 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+  transition: 0.3s ease-in;
+}
+
+:root {
+  --check-bg: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --bright-blue: hsl(220, 98%, 61%);
+
+  /* light theme */
+  --lt-lg: hsl(0, 0%, 98%);
+  --lt-lgb: hsl(236, 33%, 92%);
+  --lt-lgb-hover: hsl(236, 33%, 92%);
+  --lt-dgb: hsl(234, 11%, 52%);
+  --lt-vdgb: hsl(235, 19%, 35%);
+
+  /* dark theme */
+  --dt-vdb: hsl(235, 21%, 11%);
+  --dt-vddb: hsl(235, 24%, 19%);
+  --dt-lgb: hsl(234, 39%, 85%);
+  --dt-lgb-hover: hsl(236, 33%, 92%);
+  --dt-dgb: hsl(234, 11%, 52%);
+  --dt-vdgb: hsl(233, 14%, 35%);
+  --dt-vgb: hsl(237, 14%, 26%);
+}
+
+/* constant styles */
+main {
+  width: 500px;
+  min-height: 78vh;
+  margin: 70px auto;
+}
+
+main .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+main .header h1 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+body.dark {
+  background-color: var(--dt-vdb);
+  background-size: 100% 40%;
+  background-position: top;
+  background-image: url("./images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark main .header .toggle-icons a {
+  text-decoration: none;
+  display: none;
+}
+
+body.dark main .header .toggle-icons a.active {
+  display: block;
+}
+
+body.dark main .header .toggle-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+body.dark main .add-todo {
+  margin: 14px 0;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: var(--dt-vddb);
+}
+
+body.dark main .box {
+  background-color: var(--dt-vddb);
+  padding: 14px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+body.dark main .box .check input[type="checkbox"] {
+  position: absolute;
+  left: -99999px;
+}
+
+body.dark main .box .check input[type="checkbox"]:not(:checked) + label {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 100%;
+  border: 1px solid var(--dt-vgb);
+}
+
+body.dark main .box .check input[type="checkbox"]:not(:checked) + label:hover {
+  border: 1px solid var(--bright-blue);
+}
+
+body.dark
+  main
+  .box
+  .check
+  input[type="checkbox"]:not(:checked)
+  + label
+  img.check-mark {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+body.dark main .box .check input[type="checkbox"]:checked + label {
+  background: var(--check-bg);
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 100%;
+  border: none;
+  position: relative;
+}
+
+body.dark
+  main
+  .box
+  .check
+  input[type="checkbox"]:checked
+  + label
+  img.check-mark {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+body.dark main .box input,
+body.dark main .box input:focus {
+  background: none;
+  color: #fff;
+  padding: 10px;
+  margin-left: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 100%;
+}
+
+body.dark main .box p {
+  color: var(--dt-lgb);
+  padding: 10px;
+  margin-left: 15px;
+}
+
+body.dark main .box p.checked {
+  text-decoration: line-through;
+  color: var(--dt-vdgb);
+}
+
+body.dark main .box .close {
+  visibility: hidden;
+  margin-left: auto;
+  transition: none;
+}
+
+body.dark main .box:hover .close {
+  visibility: visible;
+  margin-left: auto;
+  transition: none;
+  cursor: pointer;
+}
+
+body.dark main .box:hover .close img,
+body main .box:hover .close img {
+  pointer-events: none;
+}
+
+body.dark main .todos {
+  border-radius: 5px;
+  padding: 4px;
+  background-color: var(--dt-vddb);
+}
+
+body.dark main .hr {
+  height: 1px;
+  display: block;
+  width: 100%;
+  background-color: var(--dt-vdgb);
+}
+
+body.dark main .others {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.dark main .others * {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dt-vdgb);
+  text-decoration: none;
+}
+
+body.dark main .others .switch-tab a {
+  margin: 0 7px;
+}
+
+body.dark main .others a:hover {
+  color: var(--dt-lgb);
+}
+
+body.dark main .others .switch-tab a.active {
+  color: var(--bright-blue);
+}
+
+/*  */
+/*  */
+/* body light */
+/*  */
+/*  */
+
+body {
+  background-color: var(--lt-lg);
+  background-size: 100% 40%;
+  background-position: top;
+  background-image: url("./images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main .header .toggle-icons a {
+  text-decoration: none;
+  display: none;
+}
+
+main .header .toggle-icons a.active {
+  display: block;
+}
+
+main .header .toggle-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+main .add-todo {
+  margin: 14px 0;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: var(--lt-lg);
+}
+
+main .box {
+  background-color: var(--lt-lg);
+  padding: 14px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+main #todo-items .box {
+  cursor: grab;
+}
+
+main .box .check input[type="checkbox"] {
+  position: absolute;
+  left: -99999px;
+}
+
+main .box .check input[type="checkbox"]:not(:checked) + label {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 100%;
+  border: 1px solid var(--lt-lgb);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+main .box .check input[type="checkbox"]:not(:checked) + label:hover {
+  border: 1px solid var(--bright-blue);
+}
+
+main .box .check input[type="checkbox"]:not(:checked) + label img.check-mark {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+main .box .check input[type="checkbox"]:checked + label {
+  background: var(--check-bg);
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+main .box .check input[type="checkbox"]:checked + label img.check-mark {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+main .box input,
+main .box input:focus {
+  background: none;
+  color: var(--lt-vdgb);
+  padding: 10px;
+  margin-left: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 100%;
+  caret-color: var(--bright-blue);
+}
+
+main .box p {
+  color: var(--lt-vdgb);
+  padding: 10px;
+  margin-left: 15px;
+}
+
+main .box p.checked {
+  text-decoration: line-through;
+  color: var(--lt-lgb);
+}
+
+main .box .close {
+  margin-left: auto;
+  transition: none;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+main .box:hover .close {
+  visibility: visible;
+  margin-left: auto;
+  transition: none;
+  cursor: pointer;
+}
+
+main .todos {
+  border-radius: 5px;
+  padding: 4px;
+  background-color: var(--lt-lg);
+  box-shadow: -1px 10px 50px rgba(0, 0, 0, 0.1);
+}
+
+main .hr {
+  height: 1px;
+  display: block;
+  width: 100%;
+  background-color: var(--lt-lgb);
+}
+
+main .others {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .others * {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lt-lgb);
+  text-decoration: none;
+}
+
+main .others .switch-tab a {
+  margin: 0 7px;
+}
+
+main .others a:hover {
+  color: var(--lt-vdgb);
+}
+
+main .others .switch-tab a.active {
+  color: var(--bright-blue);
+}
+
+@media (max-width: 576px) {
+  body {
+    background-image: url("./images/bg-mobile-light.jpg");
+  }
+
+  body.dark {
+    background-image: url("./images/bg-mobile-dark.jpg");
+  }
+
+  main,
+  body.dark main {
+    width: 300px;
+    margin: 70px auto;
+  }
+
+  main .header,
+  body.dark main .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  main .box,
+  body.dark main .box {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  body.dark main .box .check input[type="checkbox"]:not(:checked) + label,
+  main .box .check input[type="checkbox"]:not(:checked) + label,
+  body.dark main .box .check input[type="checkbox"]:checked + label,
+  main .box .check input[type="checkbox"]:checked + label {
+    width: 18px;
+    height: 18px;
+  }
+
+  main .box input,
+  body.dark main .box input,
+  main .box input:focus,
+  body.dark main .box input:focus {
+    padding: 8px;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  main .box p,
+  body.dark main .box p {
+    padding: 8px;
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  body.dark main .box .close,
+  main .box .close {
+    visibility: visible;
+  }
+
+  body.dark main .box .close img,
+  main .box .close img {
+    height: 12px;
+    width: 12px;
+  }
+
+  body.dark main .others,
+  main .others {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body.dark main .others *,
+  main .others * {
+    font-size: 13px;
+    display: none;
+  }
+
+  main .others .switch-tab,
+  body.dark main .others .switch-tab,
+  main .others .switch-tab *,
+  body.dark main .others .switch-tab * {
+    display: flex !important;
+  }
+}
